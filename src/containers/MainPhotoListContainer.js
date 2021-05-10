@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
-import axios from 'axios';
 import MainPhotoList from "../components/List/MainPhotoList";
 import Api from "../api";
 
