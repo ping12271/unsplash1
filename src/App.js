@@ -2,6 +2,7 @@ import React from "react";
 import styled, {createGlobalStyle} from "styled-components";
 import {Route, Switch} from 'react-router-dom';
 import Home from "./Pages/Home";
+import HeaderContainer from "./containers/HeaderContainer";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -21,6 +22,7 @@ const App = () => {
   return (
     <Container>
         <GlobalStyle/>
+        <HeaderContainer/>
         <Switch>
             <Route exact path={'/'} component={Home}/>
         </Switch>
