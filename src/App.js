@@ -3,6 +3,7 @@ import styled, {createGlobalStyle} from "styled-components";
 import {Route, Switch} from 'react-router-dom';
 import Home from "./Pages/Home";
 import HeaderContainer from "./containers/HeaderContainer";
+import Search from "./Pages/Search";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -25,6 +26,7 @@ const App = () => {
         <HeaderContainer/>
         <Switch>
             <Route exact path={'/'} component={Home}/>
+            <Route path={'/search/:category/:query'} component={Search}/>
         </Switch>
     </Container>
   )

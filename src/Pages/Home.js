@@ -4,7 +4,7 @@ import MainPhotoListContainer from "../containers/MainPhotoListContainer";
 import {ContentContainer} from "../components/Layout/Layout.Styled";
 import Visual from "../components/Home/Visual";
 
-const Home = () => {
+const Home = ({history}) => {
 
   return (
     <Container>

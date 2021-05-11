@@ -1,12 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import {IconSearch} from "../../icons";
 import cn from 'classnames';
+import {useHistory} from 'react-router-dom';
 
 const SearchBox = ({shape}) => {
 
+    const history = useHistory();
+    const [query, setQuery] = useState('')
+
+    const onChange = (e) => {
+        setQuery(e.target.value)
+    }
+
     const onSubmit = (e) => {
         e.preventDefault();
+        history.push(`/search/photos/${query}`)
     }
 
   return (
@@ -18,7 +27,7 @@ const SearchBox = ({shape}) => {
             <Label>
                 <Input
                     type="text"
-                    value={''}
+                    value={query}
                     onChange={onChange}
                     placeholder={'...search'}
                 />
