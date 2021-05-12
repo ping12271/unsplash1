@@ -4,6 +4,7 @@ import {Route, Switch} from 'react-router-dom';
 import Home from "./Pages/Home";
 import HeaderContainer from "./containers/HeaderContainer";
 import Search from "./Pages/Search";
+import Topics from "./Pages/Topics";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -27,6 +28,7 @@ const App = () => {
         <Switch>
             <Route exact path={'/'} component={Home}/>
             <Route path={'/search/:category/:query'} component={Search}/>
+            <Route path={'/topics/:slug'} component={Topics}/>
         </Switch>
     </Container>
   )

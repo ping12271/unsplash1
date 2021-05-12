@@ -12,15 +12,13 @@ const MainPhotoListContainer = () => {
     }, [])
 
     const getPhotos = async () => {
-
         const result = await Api.getPhotos({
             client_id: 'T-i2T-wrTHuwVSqRwSLLYOYILuVkomGurTC6bH9Xpmc',
-            per_page: 20
+            per_page: 20,
         });
 
         setPhotos(result.data)
     }
-
 
     return (
         <Container>

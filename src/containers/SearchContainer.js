@@ -7,7 +7,6 @@ import MainPhotoList from "../components/List/MainPhotoList";
 const SearchContainer = ({location, match, history}) => {
 
     const [searchResults, setSearchResults] = useState({})
-
     const query = match.params.query;
 
     useEffect(() => {
