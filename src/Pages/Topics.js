@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import TopicsContainer from "../containers/TopicsContainer";
+import {ContentContainer} from "../components/Layout/Layout.Styled";
 
 const Topics = (props) => {
 
   return (
     <Container>
-        <TopicsContainer {...props}/>
+        <ContentContainer>
+            <TopicsContainer {...props}/>
+        </ContentContainer>
     </Container>
   )
 }

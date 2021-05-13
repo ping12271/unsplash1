@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     text-decoration: none;
   }
+
   img {
     vertical-align: top;
   }
@@ -21,17 +22,17 @@ const GlobalStyle = createGlobalStyle`
 
 const App = () => {
 
-  return (
-    <Container>
-        <GlobalStyle/>
-        <HeaderContainer/>
-        <Switch>
-            <Route exact path={'/'} component={Home}/>
-            <Route path={'/search/:category/:query'} component={Search}/>
-            <Route path={'/topics/:slug'} component={Topics}/>
-        </Switch>
-    </Container>
-  )
+    return (
+        <Container>
+            <GlobalStyle/>
+            <HeaderContainer/>
+            <Switch>
+                <Route exact path={'/'} component={Home}/>
+                <Route path={'/search/:category/:query'} component={Search}/>
+                <Route path={'/topics/:slug'} component={Topics}/>
+            </Switch>
+        </Container>
+    )
 }
 
 const Container = styled.div`

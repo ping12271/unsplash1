@@ -2,10 +2,13 @@ import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import MainPhotoList from "../components/List/MainPhotoList";
 import Api from "../api";
+import {Action} from "../redux/reducer";
+import {useDispatch, useSelector} from "react-redux";
 
 const MainPhotoListContainer = () => {
 
-    const [photos, setPhotos] = useState([])
+    const dispatch = useDispatch();
+    const state = useSelector(state => state);
 
     useEffect(() => {
         getPhotos()
@@ -17,12 +20,12 @@ const MainPhotoListContainer = () => {
             per_page: 20,
         });
 
-        setPhotos(result.data)
+        dispatch(Action.Creator.setPhotos(result))
     }
 
     return (
         <Container>
-            <MainPhotoList data={photos}/>
+            <MainPhotoList data={state.list}/>
         </Container>
     )
 }
