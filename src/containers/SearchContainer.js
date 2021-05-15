@@ -3,10 +3,13 @@ import styled from "styled-components";
 import Api from "../api";
 import {withRouter} from "react-router-dom";
 import MainPhotoList from "../components/List/MainPhotoList";
+import {useDispatch, useSelector} from "react-redux";
+import {Action} from "../redux/reducer";
 
 const SearchContainer = ({location, match, history}) => {
 
-    const [searchResults, setSearchResults] = useState({})
+    const dispatch = useDispatch()
+    const state = useSelector(state => state);
     const query = match.params.query;
 
     useEffect(() => {
@@ -19,12 +22,13 @@ const SearchContainer = ({location, match, history}) => {
             query
         })
 
-        setSearchResults(result.data)
+        dispatch(Action.Creators.setSearchResult(result.data));
+
     };
 
     return (
         <Container>
-            <MainPhotoList data={searchResults?.photos?.results}/>
+            <MainPhotoList data={state.searchResult?.photos?.results}/>
         </Container>
     )
 }

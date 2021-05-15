@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import MainPhotoList from "../components/List/MainPhotoList";
 import Api from "../api";
@@ -20,7 +20,7 @@ const MainPhotoListContainer = () => {
             per_page: 20,
         });
 
-        dispatch(Action.Creator.setPhotos(result))
+        dispatch(Action.Creators.setPhotos(result.data))
     }
 
     return (

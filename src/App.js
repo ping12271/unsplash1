@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import HeaderContainer from "./containers/HeaderContainer";
 import Search from "./Pages/Search";
 import Topics from "./Pages/Topics";
+import {useSelector} from "react-redux";
 
 const GlobalStyle = createGlobalStyle`
   * {
