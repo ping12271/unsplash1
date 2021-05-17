@@ -1,27 +1,26 @@
 import axios from "axios";
 
-const baseUrl = 'https://api.unsplash.com';
+const axiosInstance = axios.create({
+    baseURL: 'https://api.unsplash.com'
+})
+
+const request = (method, url, data) => {
+    try {
+        const config = {
+            url,
+            method,
+            params: data
+        }
+        return axiosInstance(config)
+    } catch(e) {
+
+    }
+}
 
 const Api = {
-    getPhotos: (data) => axios({
-        method: 'get',
-        url: `${baseUrl}/photos`,
-        params: data
-    }),
-    searchPhotos: (data) => axios({
-        method: 'get',
-        url: `${baseUrl}/search`,
-        params: data
-    }),
-    getTopics: (data) => axios({
-        method: 'get',
-        url: `${baseUrl}/topics`,
-        params: data
-    }),
-    getTopicBySlug: (slug, data) => axios({
-        method: 'get',
-        url: `${baseUrl}/topics/${slug}`,
-        params: data
-    }),
+    getPhotos: (data) => request('get', '/photos', data),
+    searchPhotos: (data) => request('get', '/search', data),
+    getTopics: (data) => request('get', '/topics', data),
+    getTopicBySlug: (slug, data) => request('get', `/topics/${slug}`, data),
 }
 export default Api;

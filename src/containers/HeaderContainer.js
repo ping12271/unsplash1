@@ -3,10 +3,13 @@ import styled from "styled-components";
 import Gnb from "../components/Header/Gnb";
 import Lnb from "../components/Header/Lnb";
 import Api from "../api";
+import {useDispatch, useSelector} from "react-redux";
+import {Action} from "../redux/reducer";
 
 const HeaderContainer = () => {
 
-    const [topics, setTopics] = useState([])
+    const dispatch = useDispatch();
+    const state = useSelector(state => state)
 
     useEffect(() => {
         getTopics()
@@ -17,15 +20,13 @@ const HeaderContainer = () => {
             client_id: 'T-i2T-wrTHuwVSqRwSLLYOYILuVkomGurTC6bH9Xpmc',
             per_page: 20
         })
-
-        console.log('@@',result )
-        setTopics(result.data)
+        dispatch(Action.Creators.setTopics(result.data));
     }
 
   return (
     <Container>
         <Gnb/>
-        <Lnb data={topics}/>
+        <Lnb data={state.topics}/>
     </Container>
   )
 }

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PhotoItem from "../Items/PhotoItem";
 
-const MainPhotoList = ({data}) => {
+const MainPhotoList = ({data = []}) => {
 
   return (
       <Container>

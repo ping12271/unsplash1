@@ -3,11 +3,15 @@ import styled from "styled-components";
 import Api from "../api";
 import MainPhotoList from "../components/List/MainPhotoList";
 import TopicContents from "../components/Topic/TopicConents";
+import {useDispatch, useSelector} from "react-redux";
+import {Action} from "../redux/reducer";
 
 const TopicsContainer = ({match}) => {
 
+    const dispatch = useDispatch();
+    const state = useSelector(state => state);
+
     const slug = match.params.slug;
-    const [topic, setTopic] = useState({})
 
     useEffect(() => {
         getTopicBySlug()
@@ -17,13 +21,13 @@ const TopicsContainer = ({match}) => {
         const result = await Api.getTopicBySlug(slug, {
             client_id: 'T-i2T-wrTHuwVSqRwSLLYOYILuVkomGurTC6bH9Xpmc',
         })
-        setTopic(result.data)
+        dispatch(Action.Creators.setTopicBySlug(result.data));
     }
 
   return (
     <Container>
-        <TopicContents data={topic}/>
-        <MainPhotoList data={topic.preview_photos}/>
+        <TopicContents data={state.topicBySlug}/>
+        <MainPhotoList data={state.topicBySlug.preview_photos}/>
     </Container>
   )
 }

@@ -1,12 +1,16 @@
 const initialState = {
     list: [],
-    searchResult: {}
+    searchResult: {},
+    topics: [],
+    topicBySlug: []
 }
 
 export const Action = {
     Types: {
         SET_PHOTOS: 'SET_PHOTOS',
-        SET_SEARCH_RESULT: 'SET_SEARCH_RESULT'
+        SET_SEARCH_RESULT: 'SET_SEARCH_RESULT',
+        SET_TOPICS: 'SET_TOPICS',
+        SET_TOPIC_BY_SLUG: 'SET_TOPIC_BY_SLUG'
     },
     Creators: {
         setPhotos: (payload) => {
@@ -21,6 +25,18 @@ export const Action = {
                 payload
             }
         },
+        setTopics: (payload) => {
+            return {
+                type: Action.Types.SET_TOPICS,
+                payload
+            }
+        },
+        setTopicBySlug: (payload) => {
+            return {
+                type: Action.Types.SET_TOPIC_BY_SLUG,
+                payload
+            }
+        }
     },
 
 }
@@ -38,6 +54,18 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 searchResult: action.payload
+            }
+        }
+        case Action.Types.SET_TOPICS: {
+            return {
+                ...state,
+                topics: action.payload
+            }
+        }
+        case Action.Types.SET_TOPIC_BY_SLUG: {
+            return {
+                ...state,
+                topicBySlug: action.payload
             }
         }
     }
