@@ -8,24 +8,22 @@ import {useDispatch, useSelector} from "react-redux";
 const MainPhotoListContainer = () => {
 
     const dispatch = useDispatch();
-    const state = useSelector(state => state);
+    const {list} = useSelector(state => state);
 
     useEffect(() => {
         getPhotos()
     }, [])
 
     const getPhotos = async () => {
-        const result = await Api.getPhotos({
+        dispatch(Action.Creators.getPhotos({
             client_id: 'T-i2T-wrTHuwVSqRwSLLYOYILuVkomGurTC6bH9Xpmc',
-            per_page: 20,
-        });
-
-        dispatch(Action.Creators.setPhotos(result.data))
+            per_page: 20
+        }))
     }
 
     return (
         <Container>
-            <MainPhotoList data={state.list}/>
+            <MainPhotoList data={list}/>
         </Container>
     )
 }

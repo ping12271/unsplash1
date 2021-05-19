@@ -2,17 +2,24 @@ const initialState = {
     list: [],
     searchResult: {},
     topics: [],
-    topicBySlug: []
+    topicBySlug: {}
 }
 
 export const Action = {
     Types: {
+        GET_PHOTOS: 'GET_PHOTOS',
         SET_PHOTOS: 'SET_PHOTOS',
         SET_SEARCH_RESULT: 'SET_SEARCH_RESULT',
         SET_TOPICS: 'SET_TOPICS',
         SET_TOPIC_BY_SLUG: 'SET_TOPIC_BY_SLUG'
     },
     Creators: {
+        getPhotos: (payload) => {
+            return {
+                type: Action.Types.GET_PHOTOS,
+                payload
+            }
+        },
         setPhotos: (payload) => {
             return {
                 type: Action.Types.SET_PHOTOS,
