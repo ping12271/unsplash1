@@ -19,7 +19,6 @@ const TopicsContainer = ({match}) => {
 
     const getTopicBySlug = async () => {
         const result = await Api.getTopicBySlug(slug, {
-            client_id: 'T-i2T-wrTHuwVSqRwSLLYOYILuVkomGurTC6bH9Xpmc',
         })
         dispatch(Action.Creators.setTopicBySlug(result.data));
     }

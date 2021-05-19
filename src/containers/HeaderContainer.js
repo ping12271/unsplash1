@@ -17,7 +17,6 @@ const HeaderContainer = () => {
 
     const getTopics = async () => {
         const result = await Api.getTopics({
-            client_id: 'T-i2T-wrTHuwVSqRwSLLYOYILuVkomGurTC6bH9Xpmc',
             per_page: 20
         })
         dispatch(Action.Creators.setTopics(result.data));

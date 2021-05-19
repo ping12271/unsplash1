@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: 'https://api.unsplash.com'
+    baseURL: 'https://api.unsplash.com',
+    headers: {
+        Authorization: `Client-ID ${process.env.REACT_APP_CLIENT_ID}`
+    }
 })
 
 const request = (method, url, data) => {

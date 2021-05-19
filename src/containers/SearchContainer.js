@@ -18,7 +18,6 @@ const SearchContainer = ({location, match, history}) => {
 
     const searchPhotos = async () => {
         const result = await Api.searchPhotos({
-            client_id: 'T-i2T-wrTHuwVSqRwSLLYOYILuVkomGurTC6bH9Xpmc',
             query
         })
 
