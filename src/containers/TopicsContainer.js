@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
-import Api from "../api";
 import MainPhotoList from "../components/List/MainPhotoList";
 import TopicContents from "../components/Topic/TopicConents";
 import {useDispatch, useSelector} from "react-redux";
@@ -18,9 +17,7 @@ const TopicsContainer = ({match}) => {
     }, [slug])
 
     const getTopicBySlug = async () => {
-        const result = await Api.getTopicBySlug(slug, {
-        })
-        dispatch(Action.Creators.setTopicBySlug(result.data));
+        dispatch(Action.Creators.getTopicBySlug(slug))
     }
 
   return (

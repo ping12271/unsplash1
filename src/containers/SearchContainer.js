@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
-import Api from "../api";
 import {withRouter} from "react-router-dom";
 import MainPhotoList from "../components/List/MainPhotoList";
 import {useDispatch, useSelector} from "react-redux";
@@ -17,12 +16,9 @@ const SearchContainer = ({location, match, history}) => {
     }, [query])
 
     const searchPhotos = async () => {
-        const result = await Api.searchPhotos({
+        dispatch(Action.Creators.searchPhotos({
             query
-        })
-
-        dispatch(Action.Creators.setSearchResult(result.data));
-
+        }))
     };
 
     return (

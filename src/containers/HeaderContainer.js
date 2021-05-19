@@ -16,10 +16,9 @@ const HeaderContainer = () => {
     }, [])
 
     const getTopics = async () => {
-        const result = await Api.getTopics({
+        dispatch(Action.Creators.getTopics({
             per_page: 20
-        })
-        dispatch(Action.Creators.setTopics(result.data));
+        }))
     }
 
   return (

@@ -9,9 +9,12 @@ export const Action = {
     Types: {
         GET_PHOTOS: 'GET_PHOTOS',
         SET_PHOTOS: 'SET_PHOTOS',
+        SEARCH_PHOTOS: 'GET_SEARCH_PHOTOS',
         SET_SEARCH_RESULT: 'SET_SEARCH_RESULT',
-        SET_TOPICS: 'SET_TOPICS',
-        SET_TOPIC_BY_SLUG: 'SET_TOPIC_BY_SLUG'
+        GET_TOPIC_BY_SLUG: 'GET_TOPIC_BY_SLUG',
+        SET_TOPIC_BY_SLUG: 'SET_TOPIC_BY_SLUG',
+        GET_TOPICS_PHOTOS: 'GET_TOPICS_PHOTOS',
+        SET_TOPICS_PHOTOS: 'SET_TOPICS_PHOTOS',
     },
     Creators: {
         getPhotos: (payload) => {
@@ -26,15 +29,34 @@ export const Action = {
                 payload
             }
         },
+        searchPhotos: (payload) => {
+            return {
+                type: Action.Types.SEARCH_PHOTOS,
+                payload
+            }
+        },
         setSearchResult: (payload) => {
             return {
                 type: Action.Types.SET_SEARCH_RESULT,
                 payload
             }
         },
-        setTopics: (payload) => {
+        getTopicsPhotos: (payload) => {
+          return {
+              type: Action.Types.GET_TOPICS_PHOTOS,
+              payload
+          }
+        },
+        setTopicsPhotos: (payload) => {
             return {
-                type: Action.Types.SET_TOPICS,
+                type: Action.Types.SET_TOPICS_PHOTOS,
+                payload
+            }
+        },
+        getTopicBySlug: (slug, payload) => {
+            return {
+                type: Action.Types.GET_TOPIC_BY_SLUG,
+                slug,
                 payload
             }
         },
