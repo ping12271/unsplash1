@@ -1,17 +1,28 @@
 import React from "react";
 import styled from "styled-components";
+import {useDispatch} from "react-redux";
+
 import {IconDownload, IconHeart, IconPlus} from "../../icons";
+import {Action} from "../../redux/reducer";
+
 
 const PhotoItem = (props) => {
     const {
+        id,
         urls,
         user,
         users,
         sponsorship
     } = props;
-    console.log('@@',props)
+
+    const dispatch = useDispatch();
+
+    const onClick = () => {
+        dispatch(Action.Creators.openPhotoPopup(id))
+    }
+
   return (
-    <Container className={'photoItem'}>
+    <Container className={'photoItem'} onClick={onClick}>
         <Thumb>
             <img src={urls.regular} alt=""/>
         </Thumb>

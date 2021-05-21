@@ -5,7 +5,7 @@ import Home from "./Pages/Home";
 import HeaderContainer from "./containers/HeaderContainer";
 import Search from "./Pages/Search";
 import Topics from "./Pages/Topics";
-import {useSelector} from "react-redux";
+import PopupContainer from "./containers/PopupContainer";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
 
   img {
     vertical-align: top;
+    max-width: 100%;
   }
 `;
 
@@ -32,6 +33,7 @@ const App = () => {
                 <Route path={'/search/:category/:query'} component={Search}/>
                 <Route path={'/topics/:slug'} component={Topics}/>
             </Switch>
+            <PopupContainer/>
         </Container>
     )
 }

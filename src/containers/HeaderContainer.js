@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import Gnb from "../components/Header/Gnb";
 import Lnb from "../components/Header/Lnb";
-import Api from "../api";
 import {useDispatch, useSelector} from "react-redux";
 import {Action} from "../redux/reducer";
 

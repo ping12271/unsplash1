@@ -35,6 +35,8 @@ const request = (method, url, data) => {
 
 const Api = {
     getPhotos: (data) => request(fetchConstants.GET, '/photos', data),
+    getPhotoById: (id) => request(fetchConstants.GET, `/photos/${id}`),
+    getPhotoRelated: (id) => request(fetchConstants.GET, `/photos/${id}/related`),
     searchPhotos: (data) => request(fetchConstants.GET, '/search', data),
     getTopics: (data) => request(fetchConstants.GET, '/topics', data),
     getTopicBySlug: (slug, data) => request(fetchConstants.GET, `/topics/${slug}`, data),

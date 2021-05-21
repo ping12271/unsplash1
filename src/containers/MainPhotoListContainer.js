@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
 import styled from "styled-components";
-import MainPhotoList from "../components/List/MainPhotoList";
-import Api from "../api";
-import {Action} from "../redux/reducer";
 import {useDispatch, useSelector} from "react-redux";
+
+import MainPhotoList from "../components/List/MainPhotoList";
+import {Action} from "../redux/reducer";
 
 const MainPhotoListContainer = () => {
 
